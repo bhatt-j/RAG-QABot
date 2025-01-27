@@ -17,7 +17,7 @@ import numpy as np
 
 # Initialize Pinecone and the embedding model
 def connect_pine():
-  pc = Pinecone(api_key="API", environment="us-east-1")
+  pc = Pinecone(api_key="pcsk_c63YW_RUaWvP7KH56wdEVPDQucvah8poY5DDq25ZTKBmmkdfSjVxF33tqVHpP6Y4w5HGV", environment="us-east-1")
   index = pc.Index("sample-set-jb")
   print("jb-CONNECTED")
   return index
@@ -103,3 +103,21 @@ def process_pdf(file, index):
     )
     print("jb - Data successfully upserted into Pinecone!")
     return page_num
+
+def test_queries(file, query, index):
+  filename = file.name.split(".")[0]
+  model = SentenceTransformer('all-MiniLM-L6-v2')
+  query_embedding = model.encode([query])  # Encode the query into an embedding
+  query_vector = query_embedding[0].tolist()
+  # Query Pinecone for the top 3 most similar vectors
+  print(index)
+  results = index.query(
+      vector=query_vector,
+      top_k=3,              # Retrieve top 3 matches
+      include_metadata=True,
+      namespace=filename
+  )
+  print("jb-query retrieval")
+  for match in results["matches"]:
+    print(f"ID: {match['id']}, Score: {match['score']}, Metadata: {match['metadata']}")
+  return results
