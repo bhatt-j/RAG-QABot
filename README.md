@@ -1,6 +1,4 @@
 # RAG-QABot
-Retrieval-Augmented Generation (RAG) Model for a Question Answering (QA) bot that interacts with financial data, specifically Profit &amp; Loss (P&amp;L) tables extracted from PDF documents.
-
 This repository contains a system designed to process financial documents (e.g., P&L statements) and answer queries using a Retrieval-Augmented Generation (RAG) model. The project is divided into two main parts:
 
 - Part 1: RAG Model-based QA Bot:
