@@ -39,7 +39,9 @@ This repository contains a system designed to process financial documents (e.g.,
   - Run the command - !streamlit run frontend_qabot.py & npx localtunnel --port 8501
   - Click on 'your url'
   - Enter the copied IP address
-  - 
+    ![Alt text](Demonstarting-Images/tunnel.PNG)
+  - Hence you will get the Interface of the QA BOT.
+    ![Alt text](Demonstarting-Images/tunnel.PNG)
     
 ### Key Features
 - Scalable Retrieval: Uses Pinecone to handle large datasets efficiently.
