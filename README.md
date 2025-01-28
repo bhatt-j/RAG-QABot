@@ -41,8 +41,12 @@ This repository contains a system designed to process financial documents (e.g.,
   - Enter the copied IP address
     ![Alt text](Demonstarting-Images/tunnel.PNG)
   - Hence you will get the Interface of the QA BOT.
-    ![Alt text](Demonstarting-Images/tunnel.PNG)
-    
+    ![Alt text](Demonstarting-Images/1-QA-Bot-Interface.png)
+- Overall Workflow
+  - Upload a PDF containing a P&L table.
+  - Click "Process PDF" to preprocess and index the data in Pinecone.
+  - Enter financial queries (e.g., "What is the gross profit?") in the input box.
+  - View the retrieved answers alongside the relevant P&L segments in an interactive table.
 ### Key Features
 - Scalable Retrieval: Uses Pinecone to handle large datasets efficiently.
 - Interactive Frontend: User-friendly interface for real-time queries.
