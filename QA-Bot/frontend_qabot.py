@@ -10,6 +10,8 @@ Original file is located at
 """
 
 import streamlit as st
+import numpy as np
+import pandas as pd
 from pinecone import Pinecone
 from sentence_transformers import SentenceTransformer
 from backend_qabot import connect_pine, process_pdf, test_queries
@@ -38,5 +40,19 @@ if query:
   results = test_queries(uploaded_file, query, index)
   # Print the results
   st.write("**Generated Answer:**")
+  # for match in results["matches"]:
+  #   st.write(f"ID: {match['id']}, Score: {match['score']}, Metadata: {match['metadata']}")
+  match_data = []
   for match in results["matches"]:
-    st.write(f"ID: {match['id']}, Score: {match['score']}, Metadata: {match['metadata']}")
+      match_data.append({
+          "ID": match["id"],
+          "Score": round(match["score"], 3),
+          **match["metadata"]  # Flatten metadata into columns
+      })
+
+  # Convert to DataFrame for display
+  match_df = pd.DataFrame(match_data)
+
+  # Display the results as a table
+  st.write("### Retrieved Financial Data Segments")
+  st.dataframe(match_df)  # Interactive table
