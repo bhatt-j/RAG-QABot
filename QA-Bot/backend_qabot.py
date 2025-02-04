@@ -21,7 +21,7 @@ import numpy as np
 
 # Initialize Pinecone and the embedding model
 def connect_pine():
-  pc = Pinecone(api_key="pcsk_c63YW_RUaWvP7KH56wdEVPDQucvah8poY5DDq25ZTKBmmkdfSjVxF33tqVHpP6Y4w5HGV", environment="us-east-1")
+  pc = Pinecone(api_key="YOUR_API", environment="us-east-1")
   index = pc.Index("sample-set-jb")
   print("jb-CONNECTED")
   return index
