@@ -1,6 +1,4 @@
 # RAG-QABot
-Retrieval-Augmented Generation (RAG) Model for a Question Answering (QA) bot that interacts with financial data, specifically Profit &amp; Loss (P&amp;L) tables extracted from PDF documents.
-
 This repository contains a system designed to process financial documents (e.g., P&L statements) and answer queries using a Retrieval-Augmented Generation (RAG) model. The project is divided into two main parts:
 
 - Part 1: RAG Model-based QA Bot:
@@ -9,7 +7,10 @@ This repository contains a system designed to process financial documents (e.g.,
 - Part 2: Interactive QA Bot Interface:
   - Located in the QA-Bot folder.
   - Provides an interactive user interface using Streamlit for uploading financial PDFs and querying the extracted data.
-
+- Example Queries
+  - Located in Example-Demonstarting-Images folder
+  - It includes demonstration of QA bot along with the examples of financial queries.
+    
 ### Part 1: RAG Model QA Bot
 - Approach <br>
   The financial data is first loaded and preprocessed to extract meaningful information, such as tabular data from P&L statements. This preprocessing ensures that the data is structured and ready for embedding. Using a transformer-based Sentence Transformer model, the data is encoded into dense vector representations, capturing the semantic meaning of the financial content. These embeddings are then indexed in Pinecone, a high-performance vector database, allowing efficient storage and retrieval. Queries entered by users are similarly encoded into vectors and matched against the indexed data in Pinecone. The most relevant results are retrieved based on similarity scores, providing the context needed for generating accurate answers to user queries.
@@ -39,9 +40,9 @@ This repository contains a system designed to process financial documents (e.g.,
   - Run the command - !streamlit run frontend_qabot.py & npx localtunnel --port 8501
   - Click on 'your url'
   - Enter the copied IP address
-    ![Alt text](Demonstarting-Images/tunnel.PNG)
+    ![Alt text](Example-Demonstarting-Images/tunnel.PNG)
   - Hence you will get the Interface of the QA BOT.
-    ![Alt text](Demonstarting-Images/1-QA-Bot-Interface.png)
+    ![Alt text](Example-Demonstarting-Images/1-QA-Bot-Interface.png)
 - Overall Workflow
   - Upload a PDF containing a P&L table.
   - Click "Process PDF" to preprocess and index the data in Pinecone.
